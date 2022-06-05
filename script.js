@@ -10,6 +10,10 @@ function computerPlay() {
     return options[randomNumber];
 }
 
+function playerPlay() {
+    const input = prompt('Select rock paper or scissors');
+    return input;
+}
+
 console.log('The computer played ' + computerPlay());
-
-
+console.log('The player played ' + playerPlay());
