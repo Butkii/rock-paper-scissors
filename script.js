@@ -35,16 +35,25 @@ function gameRound(playerSelection, computerSelection) {
     return points;
 }
 
-const playerSelection = playerPlay();
-const computerSelection = computerPlay(); 
-console.log('You played ' + playerSelection);
-console.log('Computer played ' + computerSelection);
-const result = gameRound(playerSelection, computerSelection);
-if(result == 1) {
-    console.log('Player wins!');
+//play the game for 5 rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log('Round ' + (i+1));
+        const playerSelection = playerPlay();
+        const computerSelection = computerPlay(); 
+        console.log('You played ' + playerSelection);
+        console.log('Computer played ' + computerSelection);
+        const result = gameRound(playerSelection, computerSelection);
+        if(result == 1) {
+            console.log('Player wins!');
+        }
+        else if(result == -1) {
+            console.log('Computer wins!');
+        }
+        else if(result == 0) {
+            console.log('Draw.');
+        }
+    }
 }
-else if(result == -1) {
-    console.log('Computer wins!');
-}
-else if(result == 0) {
-    console.log('Draw.');
+
+game();
