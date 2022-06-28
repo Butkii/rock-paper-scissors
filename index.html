@@ -3,10 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Title</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aldrich" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Antonio" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anybody" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p> This is a rock, paper and scissors game. Play using console.</p>
+    <div id="main">
+        <div class="rps-heading">Rock Paper Scissors</div>
+        <button class="start">Start</button>
+    </div>
 
+    <div id="gameplay">
+        <div class="rps-heading">Rock Paper Scissors</div>
+        <div class="score">
+            <div class="gamescore">0-0</div>
+            <div class="labels">
+                <div id="player-score">Player</div>
+                <div id="computer-score">Computer</div> 
+            </div>
+        </div>
+        <div class="desc">
+            You win!
+        </div>
+        <div class="options">
+            <div class="box" id="rock">
+                <img src="rock-paper-scissors-296854.png">
+                <!-- <div class="overlay">
+                    <div class="text">Rock</div>
+                </div> -->
+            </div>
+            <div class="box" id="paper">
+                <img src="rock-paper-scissors-296855.png">
+                <!-- <div class="overlay">
+                    <div class="text">Paper</div>
+                </div> -->
+            </div>
+            <div class="box" id="scissors">
+                <img src="rock-paper-scissors-296853.png">
+                <!-- <div class="overlay">
+                    <div class="text">Scissors</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="results">
+        <div class="rps-heading">Rock Paper Scissors</div>
+        <div class="desc"></div>
+        <button class="start">Play Again</button>
+    </div>
 </body>
 </html>
