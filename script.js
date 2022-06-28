@@ -19,12 +19,6 @@ function computerPlay() {
     return options[randomNumber];
 }
 
-//prompt user to choose rock, paper or scissors
-function playerPlay(option) {
-    console.log(option.id);
-    return option.id;
-}
-
 //compare the parameters to decide winner
 function gameRound(playerSelection, computerSelection) {
     let points = 0;
@@ -44,33 +38,6 @@ function gameRound(playerSelection, computerSelection) {
     return points;
 }
 
-//play the game for 5 rounds
-function game(option) {
-    const playerSelection = option.id;
-    const computerSelection = computerPlay(); 
-    const result = gameRound(playerSelection, computerSelection);
-    if(result == 1) {
-        desc.innerHTML = 'You win!';
-        pScore = pScore + 1;
-        gamescore.innerHTML = pScore + '-' + cScore;
-    }
-    else if(result == -1) {
-        desc.innerHTML = 'Computer wins!';
-        cScore = cScore + 1;
-        gamescore.innerHTML = pScore + '-' + cScore;
-    }
-    else if(result == 0) {
-        desc.innerHTML = 'Draw.';
-    }
-
-    if (pScore == 5) {
-        desc.innerHTML = 'Player wins the game!';
-    }
-    if (cScore == 5) {
-        desc.innerHTML = 'Computer wins the game';
-    }
-}
-
 function endgame() {
     document.getElementById('gameplay').style.setProperty('display', 'none');
     document.getElementById('results').style.setProperty('display', 'flex');
@@ -78,13 +45,13 @@ function endgame() {
     document.getElementById('results').style.setProperty('align-ttems', 'center');
     document.getElementById('results').style.setProperty('justify-content', 'center');
     
-    const endBtn = document.querySelector('.end');
+    const endBtn = document.querySelector('.playAgain');
     endBtn.addEventListener('click', gameplay);
 }
 
 function gameplay() {
-    console.log('start');
     document.getElementById('main').style.setProperty('display', 'none');
+    document.getElementById('results').style.setProperty('display', 'none');
     document.getElementById('gameplay').style.setProperty('display', 'block');
 
     const options = document.querySelectorAll('.box');
@@ -93,6 +60,7 @@ function gameplay() {
     let pScore = 0;
     let cScore = 0;
     gamescore.innerHTML = pScore + '-' + cScore;
+            
     options.forEach(option => option.addEventListener('click', function() {
         const playerSelection = option.id;
         const computerSelection = computerPlay(); 
@@ -113,12 +81,12 @@ function gameplay() {
 
         if (pScore == 5) {
             desc.innerHTML = 'Player wins the game!';
-            document.getElementById('results').getElementById('desc').innerHTML = 'Player wins the game!';
+            document.getElementById('results').getElementsByClassName('desc')[0].innerHTML = 'Player wins the game!';
             endgame();
         }
         if (cScore == 5) {
             desc.innerHTML = 'Computer wins the game';
-            document.getElementById('results').getElementById('desc').innerHTML = 'Computer wins the game!';
+            document.getElementById('results').getElementsByClassName('desc')[0].innerHTML = 'Computer wins the game!';
             endgame();
         }
     }));
